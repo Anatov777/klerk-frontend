@@ -1,18 +1,27 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import type { Ref } from "vue";
 
 import RubricsTreeItem from "@/components/RubricsTreeItem.vue";
 
 interface Props {
   rubrics: any[] | null;
+  isActiveParentRubricCheckbox?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   rubrics: () => [],
+  isActiveParentRubricCheckbox: false,
 });
 
-const catalogElement: Ref<HTMLDivElement | null> = ref(null);
+watch(
+  () => props.isActiveParentRubricCheckbox,
+  (newValue: boolean) => {
+    isActiveRubricCheckbox.value = newValue;
+  }
+);
+
+const isActiveRubricCheckbox: Ref<boolean> = ref(false);
 </script>
 
 <template>
@@ -21,6 +30,7 @@ const catalogElement: Ref<HTMLDivElement | null> = ref(null);
       v-for="rubric in rubrics"
       :key="rubric.id"
       :rubric="rubric"
+      :is-active-parent-rubric-checkbox="isActiveRubricCheckbox"
     />
   </div>
 </template>
