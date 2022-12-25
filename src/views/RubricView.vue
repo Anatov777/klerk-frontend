@@ -23,9 +23,10 @@ onMounted(async (): Promise<void> => {
 </script>
 
 <template>
-  <main class="p-5">
+  <div class="p-5">
     <BaseCheckbox
       label="Отображать пустые рубрики"
+      :id="`allow-empty-checkbox`"
       @click="onClickAllowEmpty($event)"
     />
     <div>Сумма: {{ store.rubricCount }}</div>
@@ -35,5 +36,5 @@ onMounted(async (): Promise<void> => {
         <RubricsTree :rubrics="rubricsList" />
       </template>
     </BaseAccordion>
-  </main>
+</div>
 </template>

@@ -96,7 +96,7 @@ onMounted((): void => {
         </span>
         <BaseCheckbox
           class="ml-5"
-          :checked="isActiveParentRubricCheckbox"
+          :id="`checkbox-${rubric.id}`"
           @click="onClickRubrickCheckbox($event, rubric)"
         />
       </template>
