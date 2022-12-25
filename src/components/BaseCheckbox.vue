@@ -52,7 +52,7 @@ const onClick = (event: any) => {
 
 <style scoped lang="postcss">
 .base-checkbox {
-  @apply relative;
+  @apply relative flex items-center;
   padding-left: 32px;
   min-height: 24px;
   &__input {
@@ -86,7 +86,7 @@ const onClick = (event: any) => {
   }
 
   &__label {
-    font-size: 14px;
+    @apply text-sm;
     display: block;
     margin: 0;
     min-height: 20px;

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import BaseCheckbox from "@/components/BaseCheckbox.vue";
+import SubscriptionsList from "@/components/SubscriptionsList.vue";
 </script>
 
 <template>
@@ -39,6 +40,8 @@ import BaseCheckbox from "@/components/BaseCheckbox.vue";
         :is-small="true"
         class="mx-6 mt-[18px]"
       />
+
+      <SubscriptionsList />
     </div>
   </div>
 </template>
