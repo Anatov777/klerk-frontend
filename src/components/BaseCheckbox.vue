@@ -5,6 +5,7 @@ interface Props {
   isSwitcher?: boolean;
   disabled?: boolean;
   isSmall?: boolean;
+  checked?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -13,6 +14,7 @@ const props = withDefaults(defineProps<Props>(), {
   isSwitcher: false,
   disabled: false,
   isSmall: false,
+  checked: false,
 });
 
 const emit = defineEmits<{
@@ -37,6 +39,7 @@ const onClick = (event: any) => {
       :id="id"
       type="checkbox"
       :disabled="disabled"
+      :checked="checked"
       @click="onClick($event)"
     />
 

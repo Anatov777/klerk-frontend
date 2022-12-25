@@ -1,6 +1,18 @@
 <script setup lang="ts">
 import BaseCheckbox from "@/components/BaseCheckbox.vue";
 import SubscriptionsList from "@/components/SubscriptionsList.vue";
+
+import { computed, inject } from "vue";
+import type { Ref } from "vue";
+
+const clientWidth: Ref<number | null> | undefined = inject("clientWidth");
+
+const subscribeButtonText = computed<string>(() => {
+  if (clientWidth && clientWidth.value! < 640) {
+    return "";
+  }
+  return "Подписаться";
+});
 </script>
 
 <template>
@@ -30,7 +42,9 @@ import SubscriptionsList from "@/components/SubscriptionsList.vue";
           type="text"
           placeholder="Электронная почта"
         />
-        <button class="subscribe-field__button">Подписаться</button>
+        <button class="subscribe-field__button">
+          {{ subscribeButtonText }}
+        </button>
       </div>
 
       <BaseCheckbox
@@ -61,13 +75,16 @@ import SubscriptionsList from "@/components/SubscriptionsList.vue";
     }
   }
   .subscribe-field {
-    @apply flex px-6 mt-6;
+    @apply flex px-6 mt-6 max-sm:px-0;
     &__input {
       @apply p-4 rounded-md w-full placeholder:text-[#666666];
     }
     &__button {
+      @apply flex items-center justify-center;
       @apply py-4 px-8 bg-[#316FEE] text-white font-medium rounded-[100px] ml-[-50px];
-      @apply flex items-center;
+      @apply before:content-[''] before:border-r-2 before:border-t-2 before:border-white;
+      @apply before:w-[10px] before:h-[10px] before:rotate-45;
+      @apply sm:before:hidden max-sm:w-[56px] max-sm:rounded-full max-sm:p-0;
     }
   }
 }
