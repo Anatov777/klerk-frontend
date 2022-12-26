@@ -25,7 +25,7 @@ const isActiveRubricCheckbox: Ref<boolean> = ref(false);
 </script>
 
 <template>
-  <div class="p-3">
+  <div class="pl-12">
     <RubricsTreeItem
       v-for="rubric in rubrics"
       :key="rubric.id"
@@ -34,5 +34,5 @@ const isActiveRubricCheckbox: Ref<boolean> = ref(false);
     />
   </div>
 </template>
-
-<style scoped></style>
+<style scoped>
+</style>

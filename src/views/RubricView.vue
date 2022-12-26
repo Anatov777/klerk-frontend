@@ -30,7 +30,7 @@ onMounted(async (): Promise<void> => {
       @click="onClickAllowEmpty($event)"
     />
     <div>Сумма: {{ store.rubricCount }}</div>
-    <BaseAccordion title="Рубрики">
+    <BaseAccordion title="Рубрики" class="overflow-auto	">
       <template #title> Рубрики </template>
       <template #content>
         <RubricsTree :rubrics="rubricsList" />
