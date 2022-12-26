@@ -58,6 +58,7 @@ const onClick = (event: any) => {
   @apply relative flex items-center;
   padding-left: 32px;
   min-height: 24px;
+
   &__input {
     position: absolute;
     left: 0;
@@ -133,7 +134,7 @@ const onClick = (event: any) => {
 
       &::before {
         border: solid 3px #316fee;
-        box-shadow: 0 0 10px rgba(#ede2f1, 0.9);
+        box-shadow: 0 0 10px rgba(#316fee, 0.9);
       }
     }
   }
@@ -197,7 +198,7 @@ const onClick = (event: any) => {
       &:not(.base-checkbox__label--disabled):hover {
         &::before {
           border: 0;
-          box-shadow: 0 0 0 4px rgba(black, 0.2);
+          box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         }
       }
     }

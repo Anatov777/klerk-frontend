@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import SubscriptionsBlock from "@/components/SubscriptionsBlock.vue"
+import BaseBreadcrumbs from "@/components/BaseBreadcrumbs.vue"
+
 </script>
 
 <template>

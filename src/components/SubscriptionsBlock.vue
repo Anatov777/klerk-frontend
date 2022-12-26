@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import BaseCheckbox from "@/components/BaseCheckbox.vue";
 import SubscriptionsList from "@/components/SubscriptionsList.vue";
+import BaseTabs from "@/components/BaseTabs.vue";
 
-import { computed, inject } from "vue";
+import { computed, inject, ref } from "vue";
 import type { Ref } from "vue";
 
 const clientWidth: Ref<number | null> | undefined = inject("clientWidth");
+const email: Ref<string> = ref("");
 
 const subscribeButtonText = computed<string>(() => {
   if (clientWidth && clientWidth.value! < 640) {
@@ -13,6 +15,14 @@ const subscribeButtonText = computed<string>(() => {
   }
   return "Подписаться";
 });
+
+const onClickSubscribe = () => {
+  if (email.value) {
+    alert(`${email.value} подписан!`);
+  } else {
+    alert(`Заполните поле!`);
+  }
+};
 </script>
 
 <template>
@@ -22,13 +32,7 @@ const subscribeButtonText = computed<string>(() => {
     >
       Подписки «Клерка»
     </h1>
-    <div class="tabs px-[28px] mt-1.5 flex justify-center">
-      <ul class="flex gap-6">
-        <li class="tabs__item active">Рассылки</li>
-        <li class="tabs__item">Соцсети</li>
-        <li class="tabs__item">Мессенджеры</li>
-      </ul>
-    </div>
+    <BaseTabs />
     <div class="subs__container">
       <h2
         class="font-medium text-[24px] leading-[32px] text-center tracking-[-0.01em]"
@@ -38,11 +42,12 @@ const subscribeButtonText = computed<string>(() => {
 
       <div class="subscribe-field">
         <input
+          v-model="email"
           class="subscribe-field__input"
           type="text"
           placeholder="Электронная почта"
         />
-        <button class="subscribe-field__button">
+        <button class="subscribe-field__button" @click="onClickSubscribe">
           {{ subscribeButtonText }}
         </button>
       </div>
@@ -63,9 +68,10 @@ const subscribeButtonText = computed<string>(() => {
 <style scoped lang="postcss">
 .subs {
   &__container {
-    @apply py-12 px-6 bg-[#F5F5F8] rounded-2xl;
+    @apply py-12 px-4 md:px-6 bg-[#F5F5F8] rounded-2xl;
   }
   .tabs {
+    @apply px-[28px] mt-1.5 flex justify-center;
     &__item {
       @apply font-medium text-base cursor-pointer text-[#666666] py-[18px];
       @apply hover:bg-slate-100;
@@ -85,6 +91,7 @@ const subscribeButtonText = computed<string>(() => {
       @apply before:content-[''] before:border-r-2 before:border-t-2 before:border-white;
       @apply before:w-[10px] before:h-[10px] before:rotate-45;
       @apply sm:before:hidden max-sm:w-[56px] max-sm:rounded-full max-sm:p-0;
+      @apply hover:shadow-2xl shadow-blue-500 hover:bg-[#467eee];
     }
   }
 }

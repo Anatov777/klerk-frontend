@@ -41,6 +41,7 @@ const toggle = () => {
   border-radius: 4px;
   width: 30px;
   height: 30px;
+  min-width: 30px;
   cursor: pointer;
   display: inline-flex;
 }
