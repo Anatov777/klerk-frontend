@@ -3,7 +3,7 @@
 export default function useKlerkApi(): any {
   const getRubrics = async (
     allowEmpty: boolean = false
-  ): Promise<any | undefined> => {
+  ): Promise<string | undefined> => {
     try {
       const url: string = allowEmpty
         ? `/src/api/json/klerk-rubrics-allow-empty.json`

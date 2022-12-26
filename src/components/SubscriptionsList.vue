@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import SubscriptionsItem from "@/components/SubscriptionsItem.vue";
+import type { SubscriptionModel } from "@/models/SubscriptionModel";
 
-const subscriptions = [
+const subscriptions: SubscriptionModel[] = [
   {
     id: "subscription-1",
     note: "Перед рассветом",
@@ -78,7 +79,7 @@ const subscriptions = [
 </script>
 
 <template>
-  <div class="grid md:grid-cols-2 gap-6 mt-8 max-sm:mt-6 ">
+  <div class="grid md:grid-cols-2 gap-6 mt-8 max-sm:mt-6">
     <SubscriptionsItem
       v-for="sub in subscriptions"
       :key="sub.id"
@@ -86,5 +87,3 @@ const subscriptions = [
     />
   </div>
 </template>
-
-<style scoped lang="postcss"></style>

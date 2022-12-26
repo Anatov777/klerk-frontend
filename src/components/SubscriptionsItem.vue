@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import CheckIcon from "@/components/icons/CheckIcon.vue";
 import BaseCheckbox from "@/components/BaseCheckbox.vue";
+import type { SubscriptionModel } from "@/models/SubscriptionModel";
 
 interface Props {
-  subscription: any;
+  subscription: SubscriptionModel;
 }
 
 const props = defineProps<Props>();
@@ -19,7 +20,9 @@ const props = defineProps<Props>();
     <h3 class="font-medium text-xl col-start-1">
       {{ subscription.title }}
     </h3>
-    <p class="text-sm text-[#666666] col-start-1 mt-2 max-[460px]:col-[1_/_span_2]">
+    <p
+      class="text-sm text-[#666666] col-start-1 mt-2 max-[460px]:col-[1_/_span_2]"
+    >
       {{ subscription.text }}
     </p>
     <ul class="col-start-1 mt-4 max-[460px]:col-[1_/_span_2]">

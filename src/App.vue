@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
-import { vResize } from '@/directives/vResize';
-import { ref, onMounted, provide } from 'vue';
+import { RouterView } from "vue-router";
+import { vResize } from "@/directives/vResize";
+import { ref, onMounted, provide } from "vue";
 
-import type { Ref } from 'vue';
+import type { Ref } from "vue";
 
 import AppHeader from "@/components/AppHeader.vue";
 import AppFooter from "@/components/AppFooter.vue";
 
 const clientWidth: Ref<number | null> = ref(null);
 
-provide('clientWidth', clientWidth);
+provide("clientWidth", clientWidth);
 
 onMounted((): void => {
   clientWidth.value = document.body.clientWidth;

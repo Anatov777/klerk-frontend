@@ -65,17 +65,17 @@ const setRubricCounts = () => {
 
 const onClickRubrickCheckbox = (event: any, rubric: RubricModel) => {
   if (props.isActiveParentRubricCheckbox) {
-    isStillActiveParentRubricCheckbox.value = event.target.checked;
+    isStillActiveParentRubricCheckbox.value = event.target?.checked;
     return;
   }
-  if (event.target.checked) {
+  if (event.target?.checked) {
     store.plusRubricCount(rubricCounts.value);
     isActiveRubricCheckbox.value = true;
-    isStillActiveParentRubricCheckbox.value = true
+    isStillActiveParentRubricCheckbox.value = true;
   } else {
     store.minusRubricCount(rubricCounts.value);
     isActiveRubricCheckbox.value = false;
-    isStillActiveParentRubricCheckbox.value = false
+    isStillActiveParentRubricCheckbox.value = false;
   }
 };
 
@@ -109,6 +109,3 @@ onMounted((): void => {
     </BaseAccordion>
   </div>
 </template>
-
-<style scoped>
-</style>

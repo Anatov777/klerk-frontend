@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
 import type { Ref } from "vue";
+import type { RubricModel } from "@/models/RubricModel";
 
 import RubricsTreeItem from "@/components/RubricsTreeItem.vue";
 
 interface Props {
-  rubrics: any[] | null;
+  rubrics: RubricModel[] | null;
   isActiveParentRubricCheckbox?: boolean;
 }
 
@@ -34,5 +35,3 @@ const isActiveRubricCheckbox: Ref<boolean> = ref(false);
     />
   </div>
 </template>
-<style scoped>
-</style>
